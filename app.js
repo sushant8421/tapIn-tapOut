@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
-const schedule = require('node-schedule');
+const schedule 	= require('node-schedule');
+const moment	= require('moment');
 const USER_NAME = process.env.USER_NAME;
-const PASSWORD = process.env.PASSWORD;
+const PASSWORD 	= process.env.PASSWORD;
 
 async function click(selector, page) {
     try {
@@ -16,7 +17,7 @@ async function click(selector, page) {
 
 async function type(selector, page, text){
     try {
-		await page.waitForSelector('#UserLogin_password', {
+		await page.waitForSelector(selector, {
 			timeout: 10000
 		});
 		await page.focus(selector); 
@@ -49,9 +50,9 @@ async function hit() {
 	await click(loginButtonSelector, page);
 	await click(dailySurveySelector, page);
 	//await click(clockInSelector, page);
-	await browser.close();
-	console.log("Done");
+	await click(profileSelector, page);
 
+	await browser.close();
 };
 
 async function schedule1() {
@@ -75,7 +76,18 @@ async function schedule1() {
 }
 
 (async function () {
+	var time 	= moment().format();
+	var day 	= moment().day();
 
-	hit();
-	  
+	console.log('Checking', time);
+	if(day == 0 || day ==6 ){
+		console.log("Its Weekend!!")
+	}
+	else{
+		var t = Math.floor((Math.random() * 30) + 1)*60*1000;
+		setTimeout(function(){
+			hit();
+		}, t);
+	}
+
 })();

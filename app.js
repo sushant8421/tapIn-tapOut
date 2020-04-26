@@ -54,8 +54,7 @@ async function hit() {
 
 };
 
-(async function () {
-
+async function schedule1() {
 	
 	schedule.scheduleJob('0 10 * * 1,2,3,4,5', function(){ // 10am -> Weekdays 
 		console.log('Checking In');
@@ -73,6 +72,10 @@ async function hit() {
 		}, t);
 	});
 
-	setInterval(function(){ alert("Alive"); }, 3000000);
+}
+
+(async function () {
+
+	hit();
 	  
 })();

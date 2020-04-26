@@ -49,7 +49,7 @@ async function hit() {
 	await type(passworSelector, page, PASSWORD);
 	await click(loginButtonSelector, page);
 	await click(dailySurveySelector, page);
-	//await click(clockInSelector, page);
+	await click(clockInSelector, page);
 	await click(profileSelector, page);
 
 	await browser.close();

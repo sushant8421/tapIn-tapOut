@@ -48,7 +48,7 @@ async function hit() {
 	await type(passworSelector, page, PASSWORD);
 	await click(loginButtonSelector, page);
 	await click(dailySurveySelector, page);
-	await click(clockInSelector, page);
+	//await click(clockInSelector, page);
 	await browser.close();
 	console.log("Done");
 
@@ -61,7 +61,7 @@ async function hit() {
 		console.log('Checking In');
 		var t = Math.floor((Math.random() * 30) + 1)*60*1000;
 		setTimeout(function(){
-			await hit();
+			hit();
 		}, t);
 	});
 
@@ -69,7 +69,7 @@ async function hit() {
 		console.log('Checking Out');
 		var t = Math.floor((Math.random() * 30) + 1)*60*1000;
 		setTimeout(function(){
-			await hit();
+			hit();
 		}, t);
 	});
 

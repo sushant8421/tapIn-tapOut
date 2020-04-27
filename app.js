@@ -39,18 +39,20 @@ async function hit() {
 		timeout: 0
 	});
 
-	var userNameSelector 	= "#UserLogin_username";
-	var passworSelector 	= '#UserLogin_password';
-	var loginButtonSelector = '#login-submit';
-	var dailySurveySelector = '#pulse_form > div > div > div > div.action-btns.mt-32 > button.btn.btn-secondary.ripple.db-btn.plr-32.mr-12.skip_pulse';
-	var profileSelector 	= "#dasboard-bigheader > header > div.col-md-4.text-right.mt-16.desktopDisplay > ul > li:nth-child(3) > div > div";
-	var clockInSelector 	= '#attendance-logger-widget'
+	var userNameSelector 		= "#UserLogin_username";
+	var passworSelector 		= '#UserLogin_password';
+	var loginButtonSelector 	= '#login-submit';
+	var dailySurveySelector 	= '#pulse_form > div > div > div > div.action-btns.mt-32 > button.btn.btn-secondary.ripple.db-btn.plr-32.mr-12.skip_pulse';
+	var profileSelector 		= "#dasboard-bigheader > header > div.col-md-4.text-right.mt-16.desktopDisplay > ul > li:nth-child(3) > div > div";
+	var clockInSelector 		= '#attendance-logger-widget'
+	var clockInSubmitSelector	= '#clokInClockout > div > div > div.modal-body > div.text-right > button'
 	await type(userNameSelector, page, USER_NAME);
 	await type(passworSelector, page, PASSWORD);
 	await click(loginButtonSelector, page);
 	await click(dailySurveySelector, page);
 	await click(clockInSelector, page);
 	await click(profileSelector, page);
+	await click(clockInSubmitSelector, page);
 
 	await browser.close();
 };

@@ -101,4 +101,9 @@ async function schedule1() {
 		}, t);
 	}
 
+	if(process.env.SCHEDULE){
+		schedule1();
+	}
+
+
 })();

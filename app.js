@@ -92,7 +92,7 @@ async function schedule1() {
 		console.log("Its Weekend!!")
 	}
 	else{
-		var t = Math.floor((Math.random() * 30) + 1)*60*1000;
+		var t = Math.floor((Math.random() * 10) + 1)*60*1000;
 		if(process.env.NOW){ // Hit now 
 			t = 1;
 		}

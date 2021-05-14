@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const dotenv 	= require('dotenv').config();
 const schedule 	= require('node-schedule');
 const moment	= require('moment');
 const USER_NAME = process.env.USER_NAME;
@@ -43,7 +44,7 @@ async function hit() {
 	var passworSelector 		= '#UserLogin_password';
 	var loginButtonSelector 	= '#login-submit';
 	var dailySurveySelector 	= '#pulse_form > div > div > div > div.action-btns.mt-32 > button.btn.btn-secondary.ripple.db-btn.plr-32.mr-12.skip_pulse';
-	//var profileSelector 		= "#dasboard-bigheader > header > div.col-md-4.text-right.mt-16.desktopDisplay > ul > li:nth-child(3) > div > div";
+	// var profileSelector 		= "#dasboard-bigheader > header > div.col-md-4.text-right.mt-16.desktopDisplay > ul > li:nth-child(3) > div > div";
 	var clockInSelector 		= '#dasboard-bigheader > header > div.col-md-4.text-right.mt-16.desktopDisplay > ul > li:nth-child(1) > span'
 	var clockInSubmitSelector	= '#clokInClockout > div > div > div.modal-body > div.text-right > button'
 	await type(userNameSelector, page, USER_NAME);
@@ -57,7 +58,7 @@ async function hit() {
 	await new Promise(r => setTimeout(r, 10000)) // add wait ;
 
 	await click(clockInSelector, page);
-	await new Promise(r => setTimeout(r, 10000)) // add wait ;
+	await new Promise(r => setTimeout(r, 5000)) // add wait ;
 
 	await click(clockInSubmitSelector, page);
 	await browser.close();
